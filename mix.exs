@@ -11,6 +11,8 @@ defmodule RGBMonitor.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description,
+     package: package,
      deps: deps]
   end
 
@@ -18,7 +20,7 @@ defmodule RGBMonitor.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :elixir_ale],
+    [applications: [:logger, :elixir_ale, :tcs34725],
      mod: {RGBMonitor, []}]
   end
 
@@ -36,12 +38,13 @@ defmodule RGBMonitor.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:elixir_ale, "~> 0.5.2"}]
+    [{:elixir_ale, "~> 0.5.2"},
+     {:tcs34725, in_umbrella: true}]
   end
 
   defp description do
     """
-    Read CRGB data from TCS34725 sensors over I2c!"
+    Monitor TCS34725 sensors! 
     """
   end
 
@@ -50,6 +53,6 @@ defmodule RGBMonitor.Mixfile do
      files: ["lib", "mix.exs", "README*", "LICENSE*"],
      maintainers: ["Sam Schneider"],
      licenses: ["MIT"],
-     links: %{"GitHub"}]
+     links: %{"GitHub" => "https://github.com/sschneider1207/RGBMonitor"}]
   end
 end
