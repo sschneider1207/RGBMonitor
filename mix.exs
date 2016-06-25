@@ -20,8 +20,7 @@ defmodule RGBMonitor.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :elixir_ale, :tcs34725],
-     mod: {RGBMonitor, []}]
+    [applications: [:logger, :elixir_ale, :tcs34725, :watcher]]
   end
 
   # Dependencies can be Hex packages:
@@ -39,7 +38,8 @@ defmodule RGBMonitor.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:elixir_ale, "~> 0.5.2"},
-     {:tcs34725, in_umbrella: true}]
+     {:tcs34725, in_umbrella: true},
+     {:watcher, in_umbrella: true}]
   end
 
   defp description do

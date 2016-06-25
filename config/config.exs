@@ -28,3 +28,6 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+config :rgb_monitor,
+  devices: [[address: 0x29, bus: "i2c-1"]],
+  pubsub: :bucket_pubsub
